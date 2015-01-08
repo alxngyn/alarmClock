@@ -5,8 +5,18 @@ import urllib2
 import json
 import decimal
 
+#where am i?
+where = "Portland, Oregon"
+
 #change the weather to your city and 'metric' to 'imperial' for fahrenheit
-request = urllib2.Request('http://api.openweathermap.org/data/2.5/weather?id=5125771&units=metric')
+##current temp
+request = urllib2.Request('http://api.openweathermap.org/data/2.5/weather?lat=45.52&lon=-122.68&units=imperial')
+##forecast temp
+request_2 = urllib2.Request('http://api.openweathermap.org/data/2.5/forecast/daily?lat=45.52&lon=-122.68&units=imperial&cnt=1')
+
+
+#old:
+#request = urllib2.Request('http://api.openweathermap.org/data/2.5/weather?id=5125771&units=metric')
 #request = urllib2.Request('http://api.openweathermap.org/data/2.5/weather?q=NYC&units=metric')
 
 try: 
@@ -28,7 +38,7 @@ try:
     #print conditions
 
     # reads current weather
-    wtr = 'Weather conditions for today are ' + str(conditions) + ' with a current temperature of ' + str(current)
+    wtr = 'In '+ where +' the weather conditions for today are ' + str(conditions) + ' with a current temperature of ' + str(current)
 except urllib2.HTTPError, e:
     wtr = 'Failed to connect to Open Weather Map.  '
 except urllib2.URLError, e:
@@ -38,7 +48,6 @@ except Exception:
 
 # print wtr
 
-request_2 = urllib2.Request('http://api.openweathermap.org/data/2.5/forecast/daily?id=5125771&units=metric&cnt=1')
 #request_2 = urllib2.Request('http://api.openweathermap.org/data/2.5/forecast/daily?q=NYC&units=metric&cnt=1')
 
 try: 
