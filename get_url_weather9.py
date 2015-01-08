@@ -65,7 +65,7 @@ try:
     #print todays_high
 
     # reads today’s forecast weather
-    frc = ' with a low of ' + str(todays_low) + ' and a high of ' + str(todays_high) + '.  '
+    frc = ' with a forecasted low of ' + str(todays_low) + ' and a high of ' + str(todays_high) + '.  '
 
 except urllib2.HTTPError, e:
     frc = 'Failed to connect to Open Weather Map.  '
