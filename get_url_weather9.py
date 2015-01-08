@@ -38,7 +38,7 @@ try:
     #print conditions
 
     # reads current weather
-    wtr = 'The weather conditions for ' + where + ' is ' + str(conditions) + ' with a temperature of ' + str(current)
+    wtr = 'In '+ where +' the weather conditions for today are ' + str(conditions) + ' with a temperature of ' + str(current)
 except urllib2.HTTPError, e:
     wtr = 'Failed to connect to Open Weather Map.  '
 except urllib2.URLError, e:

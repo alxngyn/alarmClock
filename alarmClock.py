@@ -22,13 +22,13 @@ head = 'wget -q -U Mozilla '
 tail = '.mp3 '
 
 # end
-end = 'Thats all for now.  Have a nice day.  '
+end = 'Have a nice day.  '
 
 # Turn all of the parts into a single string
 #old wad
 #wad = (gmt + name + day + wtr + frc + btc + stck + news + end)
 
-wad = (gmt + name + day + wtr + frc + end)
+wad = (gmt + name + day + wtr + frc + news + end)
 
 # print wad
 print "WAD = " + wad
