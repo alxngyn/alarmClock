@@ -8,7 +8,7 @@ from better_spoken_time3 import gmt, day
 #from get_url_btc4 import btc
 #from get_url_stocks8 import stck
 from get_url_weather9 import wtr, frc
-#from get_url_news8 import news
+from get_url_news8 import news
 
 
 count = 1
