@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import time
- 
+
 #print time.strftime("%d")
 if int(time.strftime("%d")) == 1:
   suffixed = 'first'
@@ -72,17 +72,17 @@ now = time.strftime("%A %B ") + suffixed + ',' + time.strftime(" %I %M %p")
 
 
 if int(time.strftime("%H")) < 12:
-  period = ' morning '
+  period = ' morning'
 if int(time.strftime("%H")) >= 12:
-  period = ' afternoon '
+  period = ' afternoon'
 if int(time.strftime("%H")) >= 17:
-  period = ' evening '
-  
+  period = ' evening'
+
 #print time.strftime("%H")
 #print period
 
 # reads out good morning + my name
-gmt = 'Good' + period + ',' 
+gmt = 'Good' + period + ', '
 
 # reads date and time (sorry for the no apostrophe in it's)
-day = ' its ' + now + '.  '
+day = ' it is ' + now + '.  '

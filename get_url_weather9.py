@@ -19,7 +19,7 @@ request_2 = urllib2.Request('http://api.openweathermap.org/data/2.5/forecast/dai
 #request = urllib2.Request('http://api.openweathermap.org/data/2.5/weather?id=5125771&units=metric')
 #request = urllib2.Request('http://api.openweathermap.org/data/2.5/weather?q=NYC&units=metric')
 
-try: 
+try:
     weather_api = urllib2.urlopen(request)
     response = weather_api.read()
     response_dictionary = json.loads(response)
@@ -38,7 +38,7 @@ try:
     #print conditions
 
     # reads current weather
-    wtr = 'In '+ where +' the weather conditions for today are ' + str(conditions) + ' with a current temperature of ' + str(current)
+    wtr = 'The weather conditions for ' + where + ' is ' + str(conditions) + ' with a temperature of ' + str(current)
 except urllib2.HTTPError, e:
     wtr = 'Failed to connect to Open Weather Map.  '
 except urllib2.URLError, e:
@@ -50,7 +50,7 @@ except Exception:
 
 #request_2 = urllib2.Request('http://api.openweathermap.org/data/2.5/forecast/daily?q=NYC&units=metric&cnt=1')
 
-try: 
+try:
     forecast_api  = urllib2.urlopen(request_2)
     response_2 = forecast_api.read()
     response_2_dictionary = json.loads(response_2)
@@ -60,7 +60,7 @@ try:
 
     todays_low = round(todays_low,1)
     todays_high = round(todays_high,1)
-    
+
     #print todays_low
     #print todays_high
 
@@ -75,5 +75,3 @@ except Exception:
     frc = 'Failed to connect to Open Weather Map.  '
 
 # print frc
-
-
