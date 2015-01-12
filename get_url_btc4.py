@@ -22,4 +22,4 @@ except Exception:
 #print response_dictionary['amount']
 #print response_dictionary['subtotal']['amount']
 
-#print btc
+print btc
