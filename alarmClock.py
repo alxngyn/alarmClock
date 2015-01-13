@@ -9,7 +9,7 @@ from better_spoken_time3 import gmt, day
 #from get_url_stocks8 import stck
 from get_url_weather9 import wtr, frc
 from get_url_news8 import news
-
+from get_gCal_events import cal
 
 count = 1
 
@@ -28,7 +28,8 @@ end = 'Have a nice day.  '
 #old wad
 #wad = (gmt + name + day + wtr + frc + btc + stck + news + end)
 
-wad = (gmt + name + day + wtr + frc + news + end)
+#wad = (gmt + name + day + wtr + frc + news + end)
+wad = gmt + name + day + wtr + frc + cal + end
 
 # print wad
 print "WAD = " + wad
@@ -47,21 +48,25 @@ for chunk in wad.split('.  '):
 
 # Send shorts to Google and return mp3s
 try:
-  for sentence in shorts:
-    sendthis = sentence.join(['"http://translate.google.com/translate_tts?tl=en&q=', '" -O /mnt/ram/'])
-    print(head + sendthis + str(count).zfill(2) + str(tail))
-    print subprocess.check_output (head + sendthis + str(count).zfill(2) + str(tail), shell=True)
-    count = count + 1
+    for sentence in shorts:
+   	sendthis = sentence.join(['"http://translate.google.com/translate_tts?tl=en&q=', '" -O /mnt/ram/'])
+    	print(head + sendthis + str(count).zfill(2) + str(tail))
+    	print subprocess.check_output (head + sendthis + str(count).zfill(2) + str(tail), shell=True)
+    	count = count + 1
 
 
-# Play the mp3s returned
-#print subprocess.call ('mpg123 -h 10 -d 11 /mnt/ram/*.mp3', shell=True)
-print subprocess.call ('omxplayer -o local /mnt/ram/*.mp3', shell=True)
+  # Play the mp3s returned
+    print count
+   #print subprocess.call ('mpg123 -h 10 -d 11 /mnt/ram/*.mp3', shell=True)
+    for i in range(1, count):
+	i = str(i).zfill(2)
+	print "playing " +i +".mp3"
+    	print subprocess.call ('omxplayer -o local /mnt/ram/'+ i +'.mp3', shell=True)
 
 # festival is now called in case of error reaching Google
 except subprocess.CalledProcessError:
-  print subprocess.check_output("echo " + wad + " | festival --tts ", shell=True)
+    print subprocess.check_output("echo " + wad + " | festival --tts ", shell=True)
 
 # Cleanup any mp3 files created in this directory.
-print 'cleaning up now'
+print 'Cleaning up now.'
 print subprocess.call ('rm /mnt/ram/*.mp3', shell=True)
