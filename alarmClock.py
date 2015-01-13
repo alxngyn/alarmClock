@@ -55,7 +55,8 @@ try:
 
 
 # Play the mp3s returned
-  print subprocess.call ('mpg123 -h 10 -d 11 /mnt/ram/*.mp3', shell=True)
+#print subprocess.call ('mpg123 -h 10 -d 11 /mnt/ram/*.mp3', shell=True)
+print subprocess.call ('omxplayer -o local /mnt/ram/*.mp3', shell=True)
 
 # festival is now called in case of error reaching Google
 except subprocess.CalledProcessError:
